@@ -17,8 +17,6 @@ Client::Client(boost::asio::io_service& io_service,
 }
 
 void Client::handle_connect(const boost::system::error_code& e) {
-	Packet hello_packet = new Packet("hello", 123, 1, "temp");
-	send(hello_packet);
 	receive_thread_ = new boost::thread(&Client::handle_receive_packet);
 }
 
@@ -59,8 +57,7 @@ void securityClient::Client::send(const Packet &packet) {
 	boost::archive::text_oarchive ar(os);
 	ar & packet;
 	const size_t header = buf.size();
-	PacketBufferPtr serializedBufffer = new std::vector<
-			boost::asio::const_buffer>;
+	PacketBufferPtr serializedBufffer = new std::vector<boost::asio::const_buffer>();
 	serializedBufffer->push_back(boost::asio::buffer(&header, sizeof(header)));
 	serializedBufffer->push_back(buf.data());
 	io_service_.post(boost::bind(&Client::do_write, this, serializedBufffer));

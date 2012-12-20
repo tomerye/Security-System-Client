@@ -5,7 +5,7 @@
 
 
 #include "Packet.h"
-#include <boost/asio.hpp>>
+#include <boost/asio.hpp>
 #include <boost/bind.hpp>
 #include <iostream>
 #include <vector>
@@ -28,17 +28,18 @@ public:
 
 private:
 	Packet recv_packet_;
-	std::deque<std::vector < PacketBufferPtr> send_vector_;
+	std::deque<std::vector < PacketBufferPtr> >send_vector_;
 	boost::asio::io_service& io_service_;
 	tcp::socket socket_;
 	boost::thread *receive_thread_;
+
 	void handle_connect(const boost::system::error_code& e);
 	void handle_read(const boost::system::error_code& e);
 	void handle_write(const boost::system::error_code& error);
 	void handle_command(const Packet packet);
 	void do_write(PacketBufferPtr packet);
 	void handle_receive_packet();
-	void handle_receive_action(Packet packer)
+	void handle_receive_action(Packet packer);
 };
 
 } /* namespace securityClient */
