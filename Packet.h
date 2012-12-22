@@ -8,6 +8,9 @@
 #ifndef PACKET_H_
 #define PACKET_H_
 
+
+#include <iostream>
+
 namespace securityClient {
 
 struct Packet {
@@ -16,7 +19,7 @@ struct Packet {
 	int client_id_;
 	int level_;
 	std::string image_path_;
-
+	Packet(){};
 	Packet(std::string packet_type, int client_id
 			,int level, std::string image_path)
 	:packet_type_(packet_type),client_id_(client_id)
