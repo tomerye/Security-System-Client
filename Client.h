@@ -8,7 +8,6 @@
 #include <vector>
 #include <deque>
 #include <boost/serialization/vector.hpp>
-#include <boost/thread/thread.hpp>
 #include <boost/thread.hpp>
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>

@@ -1,9 +1,4 @@
-/*
- * Packet.h
- *
- *  Created on: Dec 8, 2012
- *      Author: root
- */
+
 
 #ifndef PACKET_H_
 #define PACKET_H_
@@ -19,6 +14,7 @@ struct Packet {
 	int client_id_;
 	int level_;
 	std::string image_path_;
+
 	Packet(){};
 	Packet(std::string packet_type, int client_id
 			,int level, std::string image_path)
